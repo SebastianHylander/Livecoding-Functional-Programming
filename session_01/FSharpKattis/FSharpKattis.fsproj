@@ -7,6 +7,7 @@
 
     <ItemGroup>
         <Compile Include="AAKattIO.fs" />
+        <Compile Include="Cold-puter_Science.fs" />
         <Compile Include="ZZProgram.fs" />
     </ItemGroup>
 
