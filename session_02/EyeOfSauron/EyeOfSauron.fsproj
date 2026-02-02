@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <RootNamespace>EyeOfSauron_</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="AAKattIO.fs" />
+    <Compile Include="Sauron.fs" />
+    <Compile Include="ZZProgram.fs" />
+  </ItemGroup>
+
+</Project>
