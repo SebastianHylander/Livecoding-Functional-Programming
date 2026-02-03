@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="AAKattIO.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
