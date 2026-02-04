@@ -22,15 +22,14 @@ let game player1 player2 =
     | _,_ -> Draw
 
 // Generates a random move
-let randomMove() =
-    let n = new Random () |> fun r -> r.Next(3)
-    match n with
+let randomMove(rng: Random) =
+    match rng.Next(3) with
         | 0 -> Rock
         | 1 -> Paper
-        | 2 -> Scissors
+        | _ -> Scissors
 
-let stringToMove(s) = 
-    match s with
+let stringToMove(s:String) = 
+    match s.Trim().ToLower() with
     | "rock" -> Rock
     | "paper" -> Paper
     | "scissors" -> Scissors
@@ -45,11 +44,12 @@ let printResult(r) =
 [<EntryPoint>]
 let main argv =
     let sc = Kattio.Scanner()
+    let rng = Random()
     
     printfn "Let's play Rock, Paper, Scissors!"
     printfn "Enter your move (rock/paper/scissors): "
     let playerMove = sc.Next() |> stringToMove
-    let rndMove = randomMove()
+    let rndMove = randomMove(rng)
     let result = game playerMove rndMove
 
     printfn "Opponent played %A"  rndMove
