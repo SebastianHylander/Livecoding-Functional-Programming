@@ -35,11 +35,11 @@ let stringToMove(s:String) =
     | "scissors" -> Scissors
     | _ -> exit 1
 
-let printResult(r) =
+let resultToString(r:Result) =
     match r with
-    | Win -> printfn "You won!"
-    | Loss -> printfn "You lose. Better luck next time!"
-    | Draw -> printfn "It's a draw"
+    | Win -> "You won!"
+    | Loss -> "You lose. Better luck next time!"
+    | Draw -> "It's a draw" 
     
 [<EntryPoint>]
 let main argv =
@@ -53,5 +53,5 @@ let main argv =
     let result = game playerMove rndMove
 
     printfn "Opponent played %A"  rndMove
-    printResult(result)
+    printfn "%s" (resultToString result)
     0
