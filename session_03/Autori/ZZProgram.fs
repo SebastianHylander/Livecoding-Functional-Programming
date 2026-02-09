@@ -1,4 +1,4 @@
 [<EntryPoint>]
 let main argv =
-    Coldputer.run_fold ()
+    Autori.run()
     0
