@@ -1,4 +1,4 @@
 [<EntryPoint>]
 let main argv =
-    Autori.run()
+    Interval.run ()
     0
