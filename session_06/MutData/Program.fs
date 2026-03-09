@@ -6,8 +6,6 @@ a <- 20
 
 printfn "%d" a
 
-// Example from slides
-
 let x = 15
 
 let f y =
@@ -18,31 +16,34 @@ let result = f 2
 
 printfn "%d" result
 
+printfn "%d" x // x remains unchanged despite function "changing" it
+
 let mutable x_mut = 15
 
 let f_mut y =
     x_mut <- y + 1
     x_mut * x_mut
 
-let result_mut = f_mut 6
+printfn "%d" (f_mut 2)
 
-printfn "%d" result_mut
+printfn "%d" x_mut // x has changed in global context despite only being edited in local scope of function
 
-// Example of issues that can happen with mutations
+
 open System.Collections.Generic
 
+// Mutable data when it goes wrong
 let mutable l = new List<int>([ 1; 2; 4; 8 ])
 
-
-// Define function that takes unit to delay evaluation
 let first () = l.[0]
 
-let malicious_func x =
-    l.Clear() // mutation happens here = side effect
+let mal_func x =
+    l.Clear()
     x + 2
 
-let res = malicious_func 2
+let res = mal_func 2
 
-printfn "%d" (first ())
 
-// We can avoid this by working functionally = no side effects
+// Passing state along
+let map = Map.empty |> Map.add 2 2 |> Map.add 3 3 |> Map.add 4 5
+
+printfn "%d" (map.Item 4)
